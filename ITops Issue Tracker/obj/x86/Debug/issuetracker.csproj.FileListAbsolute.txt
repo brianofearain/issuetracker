@@ -1,0 +1,9 @@
+C:\Users\administrator\Desktop\Issue tracker\Questionnaire\Questionnaire\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\administrator\Desktop\Issue tracker\Questionnaire\Questionnaire\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\administrator\Desktop\Issue tracker\Questionnaire\Questionnaire\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\administrator\Desktop\Issue tracker\Questionnaire\Questionnaire\bin\Debug\Questionnaire.exe
+C:\Users\administrator\Desktop\Issue tracker\Questionnaire\Questionnaire\bin\Debug\Questionnaire.pdb
+C:\Users\administrator\Desktop\Issue tracker\Questionnaire\Questionnaire\obj\x86\Debug\Questionnaire.exe
+C:\Users\administrator\Desktop\Issue tracker\Questionnaire\Questionnaire\obj\x86\Debug\Questionnaire.pdb
+C:\Users\administrator\Desktop\Issue tracker\Questionnaire\Questionnaire\obj\x86\Debug\IssueTracker.MainForm.resources
+C:\Users\administrator\Desktop\Issue tracker\Questionnaire\Questionnaire\obj\x86\Debug\IssueTracker.Properties.Resources.resources
