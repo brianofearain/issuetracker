@@ -1,4 +1,4 @@
-issuetracker
+IssueTracker
 ============
 Developed in Visual studio (Issue Tracker.csproj),   
 C# client part of an issue tracker  
