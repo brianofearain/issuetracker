@@ -6,28 +6,10 @@ using System.Globalization;
 
 namespace IssueTracker
 {
-   /// <summary>
-   /// 
-   /// </summary>
    internal static class MainProgram
    {
-      // ------------------------------------------------------------------- //
-      // ------------------------- Private Section ------------------------- //
-      // ------------------------------------------------------------------- //
-
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="hWnd"></param>
-      /// <param name="lParam"></param>
-      /// 
-      /// <returns></returns>
       private delegate bool EnumWindowsProcedureDelegate(IntPtr hWnd, int lParam);
       
-      /// <summary>
-      /// The main entry point for the application.
-      /// </summary>
       [STAThread]
       private static void Main()
       {
@@ -40,7 +22,6 @@ namespace IssueTracker
             if (!newMutx)
             {
                // There is another instance already running.
-
                ShowPreviousInstanceWindow();
                
                return;
@@ -56,33 +37,16 @@ namespace IssueTracker
          }
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
       private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
       {
          OnUnhandledException(e.ExceptionObject as Exception);
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
       private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
       {
          OnUnhandledException(e.Exception);
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="exception"></param>
       private static void OnUnhandledException(Exception exception)
       {
          try
@@ -103,9 +67,6 @@ namespace IssueTracker
          }
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
       private static void ShowPreviousInstanceWindow()
       {
          msPreviousInstanceWindowHandle = IntPtr.Zero;
@@ -124,14 +85,6 @@ namespace IssueTracker
          }
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="hWnd"></param>
-      /// <param name="lParam"></param>
-      /// 
-      /// <returns></returns>
       private static bool EnumWindowsProcedure(IntPtr hWnd, int lParam)
       {
          StringBuilder windowText = new StringBuilder(ClientForm1.MainFormText.Length + 1);
@@ -149,32 +102,16 @@ namespace IssueTracker
          return (msPreviousInstanceWindowHandle == IntPtr.Zero);
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="string1"></param>
-      /// <param name="string2"></param>
-      /// 
-      /// <returns></returns>
       private static bool StringsEqual(string string1, string string2)
       {
          return (string.Compare(string1, string2, false, CultureInfo.InvariantCulture) == 0);
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
+
       private const string MutexName = "IssueTracker_{2E920FE1-CC2F-45DA-BCE6-DB8A062CA8E9}";
 
-      /// <summary>
-      /// 
-      /// </summary>
       private static Mutex msMutx;
 
-      /// <summary>
-      /// 
-      /// </summary>
       private static IntPtr msPreviousInstanceWindowHandle;
    }
 }
