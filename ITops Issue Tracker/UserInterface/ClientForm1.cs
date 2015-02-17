@@ -71,9 +71,6 @@ namespace IssueTracker
 
       public const int MainWindowUserData = 31597;
 
-      /// <summary>
-      /// 
-      /// </summary>
       public const int WM_SHOWUP = Win32Native.WM_APP + 1;
 
       protected override void OnNotifyMessage(Message m)
