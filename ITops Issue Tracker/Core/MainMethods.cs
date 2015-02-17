@@ -27,9 +27,6 @@ namespace IssueTracker
          return msMainManager;
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
       public void Initiate()
       {
          if (QuestionSettings.QuestionsInfo.Count == 0)
@@ -56,11 +53,6 @@ namespace IssueTracker
          SetCurrentQuestion();
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="answer"></param>
       public void SetAnswer(string answer)
       {
          if (mMainForm == null)
@@ -84,9 +76,6 @@ namespace IssueTracker
          }
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
       public void Cancel()
       {
          if (mMainForm == null)
@@ -109,20 +98,10 @@ namespace IssueTracker
 
       #endregion IMainFormOperations Implementation
 
-      // ------------------------------------------------------------------- //
-      // ------------------------- Private Section ------------------------- //
-      // ------------------------------------------------------------------- //
-
-      /// <summary>
-      /// 
-      /// </summary>
       private MainMethods()
       {
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
       private void SetCurrentQuestion()
       {
          Debug.Assert(mMainForm != null);
@@ -139,9 +118,6 @@ namespace IssueTracker
             questionInfo.Advice);
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
       private void OnFinish()
       {
          if (SaveAnswers())
@@ -166,11 +142,6 @@ namespace IssueTracker
          }
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <returns></returns>
       private bool SaveAnswers()
       {
          bool succeeded;
@@ -189,11 +160,7 @@ namespace IssueTracker
          return succeeded;
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <returns></returns>
+
       private bool SaveAnswersTextual()
       {
          string outputFilePath = GetOutputFilePath();
@@ -221,11 +188,6 @@ namespace IssueTracker
          return succeeded;
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <returns></returns>
       private bool SaveAnswersXml()
       {
          string outputFilePath = GetOutputFilePath();
@@ -265,11 +227,6 @@ namespace IssueTracker
          return succeeded;
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <returns></returns>
       private string GetOutputFilePath()
       {
          const string TxtFileExtension = "txt";
@@ -315,9 +272,6 @@ namespace IssueTracker
             string.Format("{0}.{1}", QuestionSettings.OutputFileBaseName, extension));
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
       private void CloseMainForm()
       {
          ClientForm1 mainForm = mMainForm;
@@ -327,19 +281,5 @@ namespace IssueTracker
          mainForm.Close();
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      private static MainMethods msMainManager = null;
-
-      /// <summary>
-      /// 
-      /// </summary>
-      private ClientForm1 mMainForm;
-
-      /// <summary>
-      /// 
-      /// </summary>
-      private int mCurrentQuestionInfoIndex;
    }
 }
