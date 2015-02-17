@@ -11,15 +11,6 @@ namespace IssueTracker
 {
    internal partial class ClientForm1 : Form
    {
-      // ------------------------------------------------------------------- //
-      // ------------------------- Public Section -------------------------- //
-      // ------------------------------------------------------------------- //
-
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="operations"></param>
       public ClientForm1(IMainFormOperations operations)
       {
          Debug.Assert(operations != null);
@@ -35,16 +26,6 @@ namespace IssueTracker
          mNextFinishButton.Text = NextFinishButtonText_Next;
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="questionNumber"></param>
-      /// <param name="questionsCount"></param>
-      /// <param name="question"></param>
-      /// <param name="elaboration">
-      /// Set to a null reference if no elaboration is associated.
-      /// </param>
       public void SetQuestion(
          int questionNumber,
          int questionsCount,
@@ -80,29 +61,14 @@ namespace IssueTracker
          }
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
       public new void Close()
       {
          mClosing = true;
          base.Close();
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
       public const string MainFormText = "IssueTracker";
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <remarks>
-      /// When we search for the main window of the previous instance, we
-      /// check, in addition to the title of the window, the user data
-      /// associated with the window. This is an arbitrary number.
-      /// </remarks>
       public const int MainWindowUserData = 31597;
 
       /// <summary>
@@ -110,15 +76,6 @@ namespace IssueTracker
       /// </summary>
       public const int WM_SHOWUP = Win32Native.WM_APP + 1;
 
-      // ------------------------------------------------------------------- //
-      // ------------------------ Protected Section ------------------------ //
-      // ------------------------------------------------------------------- //
-
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="m"></param>
       protected override void OnNotifyMessage(Message m)
       {
          switch (m.Msg)
@@ -131,13 +88,6 @@ namespace IssueTracker
          base.OnNotifyMessage(m);
       }
 
-      // ------------------------------------------------------------------- //
-      // ------------------------- Private Section ------------------------- //
-      // ------------------------------------------------------------------- //
-
-      /// <summary>
-      /// 
-      /// </summary>
       private void ShowUp()
       {
          if (InvokeRequired)
@@ -150,11 +100,6 @@ namespace IssueTracker
          Activate();
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="shown"></param>
       private void SetAdviceStatus(bool shown)
       {
          const string AdviceButtonText_Shown = "A&dvice <-";
@@ -173,12 +118,6 @@ namespace IssueTracker
          Height += formHeightIncrement;
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
       private void MainForm_Load(object sender, EventArgs e)
       {
          Win32Native.SetWindowLong(Handle, Win32Native.GWL_USERDATA, MainWindowUserData);
@@ -186,23 +125,11 @@ namespace IssueTracker
          mOperations.OnFormLoading();
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
       private void MainForm_Shown(object sender, EventArgs e)
       {
          mAnswertextBox1.Focus();
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
       private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
       {
          if (!mClosing)
@@ -215,34 +142,16 @@ namespace IssueTracker
          }
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
       private void AdviceButton_Click(object sender, EventArgs e)
       {
          SetAdviceStatus(!mAdvicePanel.Visible);
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
       private void NextFinishButton_Click(object sender, EventArgs e)
       {
          mOperations.SetAnswer(mAnswertextBox1.Text.Trim());
       }
 
-      /// <summary>
-      /// 
-      /// </summary>
-      /// 
-      /// <param name="sender"></param>
-      /// <param name="e"></param>
       private void CancelButton_Click(object sender, EventArgs e)
       {
          mOperations.Cancel();
@@ -251,14 +160,8 @@ namespace IssueTracker
       private const string NextFinishButtonText_Next = "&Next >>";
       private const string NextFinishButtonText_Finish = "&Finish";
 
-      /// <summary>
-      /// 
-      /// </summary>
       private IMainFormOperations mOperations;
 
-      /// <summary>
-      /// 
-      /// </summary>
       private bool mClosing = false;
 
       private void mLeftSidePictureBox1_Click(object sender, EventArgs e)
