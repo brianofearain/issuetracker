@@ -7,5 +7,4 @@ IssueTracker
 * 'Properties' contains .NET environmental specifics  
 
 
-* The binaries in bin are probably by now outdated, so in order to run,  
-recompile using latest .NET compiler
+* In order to run,  recompile using latest .NET compiler
